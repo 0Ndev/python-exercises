@@ -28,8 +28,10 @@ class Station:
         return "Station: " + self.stationsName
 
     def addPatient(self, patient):
-        self.patientenListe.append(patient)
+        # self.patientenListe.append(patient)
+        self.patientenListe += [patient]
         self.anzPatienten += 1
+        return [print("patient aus liste: ", patient) for patient in self.patientenListe]
 
     def searchPatient(self, patientId):
         # if patientId == Patient(patientId):
@@ -67,7 +69,8 @@ class Krankenhaus:
         self.stationsListe = []
 
     def fuegStationHinzu(self, station):
-        self.stationsListe.append(station)
+        # self.stationsListe.append(station)
+        self.stationsListe += [station]
         self.anzStationen += 1
         return self.stationsListe 
 
@@ -78,7 +81,6 @@ class Krankenhaus:
                 return "Station: " + str(station) + " ist vorhanden."
             else:
                 return "Station " + str(station) + " ist nicht vorhanden."
-
 
     def loescheStation(self, station):
         if station in self.stationsListe:
