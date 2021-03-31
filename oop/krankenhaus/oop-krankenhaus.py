@@ -43,6 +43,7 @@ class Station:
             else:
                 return "Patient ist nicht gefunden."
 
+
     def deletePatient(self, patient):
         for patient_from_list in self.patientenListe:
             if patient_from_list == patient:
@@ -68,7 +69,7 @@ class Krankenhaus:
     def fuegStationHinzu(self, station):
         self.stationsListe.append(station)
         self.anzStationen += 1
-        # return 
+        return self.stationsListe 
 
     def sucheStation(self, station):
         for station_from_list in self.stationsListe:
@@ -78,8 +79,11 @@ class Krankenhaus:
             else:
                 return "Station " + str(station) + " ist nicht vorhanden."
 
-    def loescheStation(self):
-        pass
+
+    def loescheStation(self, station):
+        if station in self.stationsListe:
+            self.stationsListe.remove(station)
+        return self.stationsListe
 
     def zeigeAlle(self):
         # print("self.stationsListe:", self.stationsListe)
@@ -126,7 +130,7 @@ print("Der Patient Nr " + str(patient_1.patientID) + " ist im System ", station_
 
 print("Geben Sie die ID des zu löschenden Patienten ein: :")
 print("\n* Nach loeschen ************")
-# print("Der Patient Nr " + Patient.patientId + " wurde gelöscht: " + Station.deletePatient(patientId))
+print("Der Patient Nr " + str(patient_1.patientID) + " wurde gelöscht: " + station_1.deletePatient(patient_1.patientID))
 print("*********************************")
 
 # krankenhaus
