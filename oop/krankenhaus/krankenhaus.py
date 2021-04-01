@@ -1,3 +1,5 @@
+# OOP - Aggregation
+
 # Patient
 class Patient:
     def __init__(self, patientAge, patientName):
@@ -31,34 +33,25 @@ class Station:
         # self.patientenListe.append(patient)
         self.patientenListe += [patient]
         self.anzPatienten += 1
-        return [print("patient aus liste: ", patient) for patient in self.patientenListe]
+        # return [print("patient aus liste: ", patient) for patient in self.patientenListe]
 
     def searchPatient(self, patientId):
-        # if patientId == Patient(patientId):
-        #     return True
-        # else:
-        #     return False
-
-        for patient_from_list in self.patientenListe:
-            if patient_from_list == patientId:
-                return patientId 
+        for patient in self.patientenListe:
+            if patient.patientID == patientId:
+                return True 
             else:
-                return "Patient ist nicht gefunden."
+                return False
 
-
-    def deletePatient(self, patient):
-        for patient_from_list in self.patientenListe:
-            if patient_from_list == patient:
-                return self.patientenListe.remove(patient)
-            else:
-                return "nicht gelöscht"
-
+    def deletePatient(self, patientID):
+        for patient in self.patientenListe:
+            if patient.patientID == patientID:
+                self.patientenListe.remove(patient)
+                return True
+        return False
 
     def displayAll(self):
-        patienten_anz = self.anzPatienten
         return "Patienten Anzahl: " + str(self.anzPatienten)
         # return "Patienten Anzahl: " + str(self.anzPatienten) + "\n Patientenliste: " + self.patientenListe
-
 
 
 # Krankenhaus
